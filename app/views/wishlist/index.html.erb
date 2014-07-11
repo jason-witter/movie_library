@@ -1,6 +1,6 @@
 <h1 class="text-primary">Jason's Wishlist</h1>
 <br>
-
+<% unless  @wish_list_movies.count == 0 %>
 <div class="row">
   <div class="col-md-8">
     <table class="table table-striped">
@@ -16,5 +16,10 @@
     </table>
   </div>
 </div>
+<% else %>
 
-<%= link_to '<button type="button" class="btn">Return to All Movies</button>'.html_safe, movies_path %>
+<h4>You don't have any movies on your wishlist! Check out <a href="http://www.rottentomatoes.com/dvd/new-releases">Rotten Tomatoes</a> for some inspiration.</h4>
+
+<% end %>
+<br>
+<%= link_to '<button type="button" class="btn">Return to All Movies</button>'.html_safe, root_path %>
