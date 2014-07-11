@@ -15,8 +15,8 @@ ActiveRecord::Schema.define(version: 20140711151931) do
 
   create_table "movies", force: true do |t|
     t.string   "title"
-    t.boolean  "watched?"
-    t.boolean  "downloaded?"
+    t.boolean  "watched"
+    t.boolean  "downloaded"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
