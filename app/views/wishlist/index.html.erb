@@ -1,6 +1,5 @@
-<h1 class="text-primary">Jason's Movies</h1>
+<h1 class="text-primary">Jason's Wishlist</h1>
 <br>
-<%= link_to '<button type="button" class="btn">Add New Movie</button>'.html_safe, new_movie_path %>
 
 <div class="row">
   <div class="col-md-8">
@@ -8,8 +7,6 @@
       <thead>
         <tr>
           <th>Title</th>
-          <th>Downloaded?</th>
-          <th>Watched?</th>
           <th>Edit</th>
           <th>Delete</th>
         </tr>
@@ -19,4 +16,5 @@
     </table>
   </div>
 </div>
-<%= link_to 'Wishlist', wishlist_path %>
+
+<%= link_to '<button type="button" class="btn">Return to All Movies</button>'.html_safe, movies_path %>
