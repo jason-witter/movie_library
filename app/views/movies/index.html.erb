@@ -1,6 +1,6 @@
 <h1 class="text-primary">Jason's Movies</h1>
 <br>
-<button type="button" class="btn"><%= link_to 'Add New Movie', new_movie_path %></button>
+<%= link_to '<button type="button" class="btn">Add New Movie</button>'.html_safe, new_movie_path %>
 
 <div class="row">
   <div class="col-md-8">
