@@ -1,4 +1,6 @@
-<h1 class="text-primary">Here's the movie page</h1>
+<h1 class="text-primary">Jason's Movies</h1>
+<br>
+<button type="button" class="btn"><%= link_to 'Add New Movie', new_movie_path %></button>
 
 <div class="row">
   <div class="col-md-8">
@@ -17,8 +19,18 @@
         <% @movies.each do |movie| %>
           <tr>
             <td><%= movie.title %></td>
-            <td><%= check_box_tag 'downloaded', '1', movie.downloaded, :disabled => true %></td>
-            <td><%= check_box_tag 'watched', '1', movie.watched, :disabled => true %></td>
+            <td><% if movie.downloaded %>
+              <span class="glyphicon glyphicon-ok"></span>
+              <% else %>
+              <span class="glyphicon glyphicon-remove"></span>
+              <% end %>
+            </td>
+            <td><% if movie.watched %>
+              <span class="glyphicon glyphicon-ok"></span>
+              <% else %>
+              <span class="glyphicon glyphicon-remove"></span>
+              <% end %>
+            </td>
             <td><%= link_to 'Edit', edit_movie_path(movie) %></td>
             <td><%= link_to 'Destroy', movie, method: :delete, data: { confirm: 'Are you sure?' } %></td>
           </tr>
@@ -27,7 +39,3 @@
     </table>
   </div>
 </div>
-
-<br>
-
-<%= link_to 'New Movie', new_movie_path %>

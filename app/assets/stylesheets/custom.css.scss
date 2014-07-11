@@ -1,1 +1,35 @@
 @import "bootstrap";
+
+/* glyphicons */
+
+.glyphicon-ok {
+	color: green;
+}
+
+.glyphicon-remove {
+	color: red;
+}
+
+html {
+  overflow-y: scroll;
+}
+
+body {
+  padding-left: 20px;
+}
+
+section {
+  overflow: auto;
+}
+
+textarea {
+  resize: vertical;
+}
+
+.center {
+  text-align: center;
+}
+
+.center h1 {
+  margin-bottom: 10px;
+}
