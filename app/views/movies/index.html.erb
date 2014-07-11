@@ -10,8 +10,8 @@
           <th>Title</th>
           <th>Downloaded?</th>
           <th>Watched?</th>
-          <th></th>
-          <th></th>
+          <th>Edit</th>
+          <th>Delete</th>
         </tr>
       </thead>
 
@@ -31,8 +31,8 @@
               <span class="glyphicon glyphicon-remove"></span>
               <% end %>
             </td>
-            <td><%= link_to 'Edit', edit_movie_path(movie) %></td>
-            <td><%= link_to 'Destroy', movie, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+            <td><%= link_to '<span class="glyphicon glyphicon-pencil"></span'.html_safe, edit_movie_path(movie) %></td>
+            <td><%= link_to '<span class="glyphicon glyphicon-trash"></span'.html_safe, movie, method: :delete, data: { confirm: 'Are you sure?' } %></td>
           </tr>
         <% end %>
       </tbody>
