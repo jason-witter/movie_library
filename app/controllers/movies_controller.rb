@@ -14,16 +14,14 @@ class MoviesController < ApplicationController
 
   def create
     @movie = Movie.new(movie_params)
-    if @movie.save
-      flash[:success] = "Added new movie."
-    end
+    @movie.save
     redirect_to '/'
   end
 
   def update
     respond_to do |format|
       if @movie.update(movie_params)
-        format.html { redirect_to '/', notice: 'Movie successfully added'}
+        format.html { redirect_to '/'}
         format.json { head :no_content }
       else
         format.html { render action:  'edit' }
