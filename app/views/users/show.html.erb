@@ -1,1 +1,6 @@
-<%= @user.name %>
+<div class="center">
+	<h3>Hello <%= @user.name %>!</h3>
+	<h5>You currently have <%= pluralize(@movies.count, 'movie') %> in your library and <%= pluralize(@wishlist_movies.count, 'movie') %>  in your wishlist.</h5><br>
+
+	<%= link_to '<button type="button" class="btn btn-warning">Back to All Movies</button>'.html_safe, movies_path %>
+</div>

@@ -1,17 +1,18 @@
 <h1>Update your profile</h1>
 
 <div class="center">
+  <%= render 'shared/error_messages' %>
   <%= form_for(@user) do |f| %>
-    <%= render 'shared/error_messages' %>
 
-    <%= f.label :name %>
+    <%= f.label :name %><br>
     <%= f.text_field :name %>
-
-    <%= f.label :password %>
+    <br>
+    <%= f.label :password %><br>
     <%= f.password_field :password %>
-
-    <%= f.label :password_confirmation, "Confirm Password" %>
+    <br>
+    <%= f.label :password_confirmation, "Confirmation" %><br>
     <%= f.password_field :password_confirmation %>
+    <br><br>
 
     <%= f.submit "Save changes", class: "btn btn-large btn-primary" %>
   <% end %>
