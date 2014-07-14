@@ -21,7 +21,7 @@ class MoviesController < ApplicationController
   def update
     respond_to do |format|
       if @movie.update(movie_params)
-        format.html { redirect_to '/'}
+        format.html { redirect_to '/movies'}
         format.json { head :no_content }
       else
         format.html { render action:  'edit' }
@@ -33,7 +33,7 @@ class MoviesController < ApplicationController
   def destroy
     @movie.destroy
     respond_to do |format|
-      format.html { redirect_to '/' }
+      format.html { redirect_to '/movies' }
       format.json { head :no_content }
     end
   end
