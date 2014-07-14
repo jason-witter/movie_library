@@ -1,0 +1,25 @@
+<h1 class="text-primary"><%= @user.name %>'s Movie Night Selections</h1>
+<br>
+<% unless  @movienight_movies.count == 0 %>
+<div class="row">
+  <div class="col-md-8">
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>Title</th>
+          <th>Edit</th>
+          <th>Delete</th>
+        </tr>
+      </thead>
+
+      <%= render 'table_body' %>
+    </table>
+  </div>
+</div>
+<% else %>
+
+<h4>You don't have any unwatched movies!</h4>
+
+<% end %>
+<br>
+<%= link_to '<button type="button" class="btn btn-warning">Return to All Movies</button>'.html_safe, movies_path %>

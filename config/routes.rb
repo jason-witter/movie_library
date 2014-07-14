@@ -3,6 +3,7 @@ MovieLibrary::Application.routes.draw do
   resources :sessions, only: [:new, :create, :destroy]
   root "static_pages#home"
   match "/wishlists/new", to: 'wishlists#create', via: 'post'
+  match "/movienight", to: 'movienights#index', via: 'get'
   match '/signup', to: 'users#new', via: 'get'
   match '/signin', to: 'sessions#new',  via: 'get'
   match '/signout', to: 'sessions#destroy', via: 'delete'
