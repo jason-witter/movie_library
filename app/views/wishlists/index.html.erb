@@ -1,0 +1,26 @@
+<h1 class="text-primary">Jason's Wishlist</h1>
+<br>
+<% unless  @wish_list_movies.count == 0 %>
+<%= link_to '<button type="button" class="btn btn-success">Add New Movie to Wishlist</button>'.html_safe, new_wishlist_path %>
+<div class="row">
+  <div class="col-md-8">
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>Title</th>
+          <th>Edit</th>
+          <th>Delete</th>
+        </tr>
+      </thead>
+
+      <%= render 'table_body' %>
+    </table>
+  </div>
+</div>
+<% else %>
+
+<h4>You don't have any movies on your wishlist! Check out <a href="http://www.rottentomatoes.com/dvd/new-releases">Rotten Tomatoes</a> for some inspiration, or <%= link_to 'add one', new_wishlist_path %>.</h4>
+
+<% end %>
+<br>
+<%= link_to '<button type="button" class="btn btn-warning">Return to All Movies</button>'.html_safe, root_path %>

@@ -1,8 +1,7 @@
 MovieLibrary::Application.routes.draw do
-  resources :movies
+  resources :movies, :wishlists
   root "movies#index"
-  match '/wishlist', to: 'wishlist#index', via: 'get'
-  match '/wishlist/new', to: 'wishlist#new', via: 'get'
+  match "/wishlists/new", to: 'wishlists#create', via: 'post'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
