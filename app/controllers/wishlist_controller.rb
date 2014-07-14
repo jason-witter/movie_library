@@ -14,8 +14,9 @@ class WishlistController < ApplicationController
 
   def create
     @movie = Movie.new(movie_params)
-    @movie.save
-    redirect_to 'index'
+    if @movie.save
+      render 'index'
+    end
   end
 
   def update

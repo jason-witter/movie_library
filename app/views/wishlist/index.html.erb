@@ -1,6 +1,7 @@
 <h1 class="text-primary">Jason's Wishlist</h1>
 <br>
 <% unless  @wish_list_movies.count == 0 %>
+<%= link_to '<button type="button" class="btn">Add New Movie to Wishlist</button>'.html_safe, '/wishlist/new' %>
 <div class="row">
   <div class="col-md-8">
     <table class="table table-striped">
