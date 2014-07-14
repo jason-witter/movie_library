@@ -1,8 +1,10 @@
 class WishlistsController < ApplicationController
+  before_action :signed_in_user
   before_action :set_movie, only: [ :edit, :update ]
 
 	def index
-		@wish_list_movies = Movie.where( "downloaded = ? AND watched = ?", false, false )
+    @user = current_user
+		@wish_list_movies = @user.movies.where( "downloaded = ? AND watched = ?", false, false )
 	end
 
 	def new
@@ -13,7 +15,7 @@ class WishlistsController < ApplicationController
   end
 
   def create
-    @wishlist_movie = Movie.new(movie_params)
+    @wishlist_movie = current_user.movies.build(movie_params)
     @wishlist_movie.save
     redirect_to '/wishlists'
   end

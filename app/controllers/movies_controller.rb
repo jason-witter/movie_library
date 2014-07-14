@@ -1,8 +1,14 @@
 class MoviesController < ApplicationController
+  before_action :signed_in_user
   before_action :set_movie, only: [:edit, :update, :destroy]
 
 	def index
-		@movies = Movie.all
+    @user = current_user
+    if @user.movies
+		  @movies = @user.movies
+    else
+      @movies = {}
+    end
   end
 
   def new
@@ -13,9 +19,9 @@ class MoviesController < ApplicationController
   end
 
   def create
-    @movie = Movie.new(movie_params)
+    @movie = current_user.movies.build(movie_params)
     @movie.save
-    redirect_to '/'
+    redirect_to '/movies'
   end
 
   def update
