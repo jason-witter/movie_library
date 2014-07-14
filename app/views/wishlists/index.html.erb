@@ -1,4 +1,4 @@
-<h1 class="text-primary">Jason's Wishlist</h1>
+<h1 class="text-primary"><%= @user.name %>'s Wishlist</h1>
 <br>
 <% unless  @wish_list_movies.count == 0 %>
 <%= link_to '<button type="button" class="btn btn-success">Add New Movie to Wishlist</button>'.html_safe, new_wishlist_path %>
@@ -23,4 +23,4 @@
 
 <% end %>
 <br>
-<%= link_to '<button type="button" class="btn btn-warning">Return to All Movies</button>'.html_safe, root_path %>
+<%= link_to '<button type="button" class="btn btn-warning">Return to All Movies</button>'.html_safe, movies_path %>
