@@ -4,6 +4,7 @@ MovieLibrary::Application.routes.draw do
   root "static_pages#home"
   match "/wishlists/new", to: 'wishlists#create', via: 'post'
   match "/movienight", to: 'movienights#index', via: 'get'
+  match "/randommovie", to: 'movienights#show', via: 'get'
   match '/signup', to: 'users#new', via: 'get'
   match '/signin', to: 'sessions#new',  via: 'get'
   match '/signout', to: 'sessions#destroy', via: 'delete'
