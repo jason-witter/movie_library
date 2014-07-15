@@ -4,7 +4,7 @@ class WishlistsController < ApplicationController
 
 	def index
     @user = current_user
-		@wish_list_movies = @user.movies.where( "downloaded = ? AND watched = ?", false, false )
+		@wish_list_movies = get_wishlist_movies
 	end
 
 	def new

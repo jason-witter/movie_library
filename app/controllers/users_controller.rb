@@ -5,7 +5,8 @@ class UsersController < ApplicationController
   def show
   	@user = User.find(params[:id])
     @movies = @user.movies
-    @wishlist_movies = @movies.where( "downloaded = ? AND watched = ?", false, false )
+    @wishlist_movies = get_wishlist_movies
+    @movienight_movies = get_movienight_movies
   end
 
   def new
