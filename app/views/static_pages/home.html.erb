@@ -3,5 +3,7 @@
 	<%= link_to '<button type="button" class="btn btn-info">View Your Wishlist</button>'.html_safe, wishlists_path %><br><br>
 	<%= link_to '<button type="button" class="btn btn-warning">Find a Movie for Movie Night</button>'.html_safe, movienight_path %>
 <% else %>
-	<%= link_to '<button type="button" class="btn btn-success">Sign In</button>'.html_safe, signin_path %>
+	<div class="center">
+		<%= link_to '<button type="button" class="btn btn-lg btn-success">Sign In</button>'.html_safe, signin_path %>
+	</div>
 <% end %>
