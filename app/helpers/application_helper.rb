@@ -1,9 +1,10 @@
 module ApplicationHelper
+include SessionsHelper
 	def get_wishlist_movies
-		Movie.where( "downloaded = ? AND watched = ?", false, false )
+		current_user.movies.where( "downloaded = ? AND watched = ?", false, false )
 	end
 
 	def get_movienight_movies
-		Movie.where( "downloaded = ? AND watched = ?", true, false )
+		current_user.movies.where( "downloaded = ? AND watched = ?", true, false )
 	end
 end

@@ -1,7 +1,11 @@
+<h1>Welcome to your own personal Movie Library!</h1>
+
 <% if signed_in? %>
+<div class="center">
 	<%= link_to '<button type="button" class="btn btn-success">View All Movies</button>'.html_safe, movies_path %><br><br>
 	<%= link_to '<button type="button" class="btn btn-info">View Your Wishlist</button>'.html_safe, wishlists_path %><br><br>
 	<%= link_to '<button type="button" class="btn btn-warning">Find a Movie for Movie Night</button>'.html_safe, movienight_path %>
+<div>
 <% else %>
 	<div class="center">
 		<%= link_to '<button type="button" class="btn btn-lg btn-success">Sign In</button>'.html_safe, signin_path %>
