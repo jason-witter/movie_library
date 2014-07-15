@@ -1,5 +1,7 @@
 <h1 class="text-primary"><%= @user.name %>'s Movies</h1>
 <br>
+<% unless @movies.count == 0 %>
+
 <%= link_to '<button type="button" class="btn btn-success">Add New Movie</button>'.html_safe, new_movie_path %>
 
 <div class="row">
@@ -21,3 +23,9 @@
 </div>
 <%= link_to '<button type="button" class="btn btn-info">Wishlist</button>'.html_safe, wishlists_path %>
 <%= link_to '<button type="button" class="btn btn-info">Find a Movie for Movie Night</button>'.html_safe, movienight_path %>
+
+<% else %>
+
+<h3 class="center">You don't have any movies in your library!<br>Get started by adding a movie <%= link_to 'you already own', new_movie_path %>,<br>or by adding one to your <%= link_to 'wishlist', new_wishlist_path %>.</h3>
+
+<% end %>
