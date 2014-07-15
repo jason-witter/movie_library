@@ -15,3 +15,5 @@
 //= require bootstrap
 //= require turbolinks
 //= require_tree .
+document.documentElement.setAttribute('js-enabled', '1');
+$(document.getElementById('search_body')).html('');

@@ -96,3 +96,13 @@ p {
   color: #fff;
   text-decoration: none;
 }
+
+div.javascriptNotEnabled {
+    border: solid 1px #CCCCCC;
+    background-color:#EEEE99;
+    padding:1em;
+    margin:0 auto 1em auto;
+}
+html[js-enabled='1'] div.javascriptNotEnabled {
+    display:none;
+}
