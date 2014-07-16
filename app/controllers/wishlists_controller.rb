@@ -16,7 +16,15 @@ class WishlistsController < ApplicationController
 
   def create
     @wishlist_movie = current_user.movies.build(movie_params)
-    @wishlist_movie.save
+    save = true
+    current_user.movies.each do |movie|
+      if @wishlist_movie.title == movie.title
+        save = false
+      end
+    end
+    if save
+     @wishlist_movie.save
+    end
     redirect_to '/wishlists'
   end
 

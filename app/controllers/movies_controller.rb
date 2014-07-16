@@ -20,7 +20,15 @@ class MoviesController < ApplicationController
 
   def create
     @movie = current_user.movies.build(movie_params)
-    @movie.save
+    save = true
+    current_user.movies.each do |movie|
+      if @movie.title == movie.title
+        save = false
+      end
+    end
+    if save
+     @movie.save
+    end
     redirect_to '/movies'
   end
 
