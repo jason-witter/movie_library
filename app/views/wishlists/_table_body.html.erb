@@ -2,7 +2,6 @@
   <% @wish_list_movies.each do |movie| %>
     <tr>
 		  <td><%= movie.title %></td>
-		  <td><%= link_to '<span class="glyphicon glyphicon-pencil"></span'.html_safe, edit_movie_path(movie) %></td>
 		  <td><%= link_to '<span class="glyphicon glyphicon-trash"></span'.html_safe, movie, method: :delete, data: { confirm: 'Are you sure?' } %></td>
 		</tr>
   <% end %>
