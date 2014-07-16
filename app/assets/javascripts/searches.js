@@ -5,10 +5,13 @@ $(document).ready(function() {
         search();
     }
   });
-  $(document.getElementById('search_button')).click(search);
+  $('#search_button').click(search);
+
+  
 
   // Rotten Tomatoes search function
   function search() {
+    var that = this;
     var apikey = "gmpx67fws5dfu7h9g9qj4azx";
     var baseUrl = "http://api.rottentomatoes.com/api/public/v1.0";
    
@@ -41,7 +44,10 @@ $(document).ready(function() {
       $.each(movies, function(index, movie) {
         content += '<tr><td><img src="' + movie.posters.thumbnail + '" /></td>';
         content += '<td>' + movie.title + '</td>';
-        content += '<td>' + movie.release_dates.dvd + '</td></tr>';
+        content += '<td>' + movie.release_dates.dvd + '</td>';
+        content += '<td><button id="wishlist_add" class="btn btn-success" name="' +
+                     movie.release_dates.dvd + '" title="' + movie.title +
+                     '">Add to Wishlist</button></td></tr>'
       });
       content += generate_table_foot();
       search_result_body.html(content);
@@ -52,7 +58,7 @@ $(document).ready(function() {
       str += '<div class="row"><div class="col-md-8">' + 
               '<table class="table table-striped">' + 
               '<thead><tr><th></th><th>Title</th><th>DVD Release Date</th>' + 
-              '</tr></thead><tbody>';
+              '<th></th></tr></thead><tbody>';
       return str;
     };
 
@@ -61,5 +67,19 @@ $(document).ready(function() {
       str += '</tbody></table></div></div>';
       return str;
     };
+
+    // Add to wishlist trigger
+    $(document).on("click", "#wishlist_add", add_to_wishlist);
+
+    function add_to_wishlist(ev) {
+      $.ajax({
+        type: "POST",
+        url: "/wishlists/new/",
+        data: { movie: { title: ev.currentTarget.title }},
+        success: function () {
+          window.location.pathname = "wishlists"
+        }
+      });
+    }
   }
 });
