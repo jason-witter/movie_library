@@ -2,19 +2,16 @@
   <% @movies.each do |movie| %>
     <tr>
 		  <td><%= movie.title %></td>
-		  <td><% if movie.downloaded %>
-		    <span class="glyphicon glyphicon-ok"></span>
-		    <% else %>
-		    <span class="glyphicon glyphicon-remove"></span>
-		    <% end %>
-		  </td>
-		  <td><% if movie.watched %>
-		    <span class="glyphicon glyphicon-ok"></span>
-		    <% else %>
-		    <span class="glyphicon glyphicon-remove"></span>
-		    <% end %>
-		  </td>
-		  <td><%= link_to '<span class="glyphicon glyphicon-pencil"></span'.html_safe, edit_movie_path(movie) %></td>
+		  <% if movie.downloaded %>
+		    <td><button class="downloaded_yes" title="<%= movie.id %>"><span class="glyphicon glyphicon-ok"></span></button></td>
+		  <% else %>
+		    <td><button class="downloaded_no" title="<%= movie.id %>"><span class="glyphicon glyphicon-remove"></span></button></td>
+		  <% end %>
+		  <% if movie.watched %>
+		    <td><button class="watched_yes" title="<%= movie.id %>"><span class="glyphicon glyphicon-ok"></span></button></td>
+		  <% else %>
+		    <td><button class="watched_no" title="<%= movie.id %>"><span class="glyphicon glyphicon-remove"></span></button></td>
+		  <% end %>
 		  <td><%= link_to '<span class="glyphicon glyphicon-trash"></span'.html_safe, movie, method: :delete, data: { confirm: 'Are you sure?' } %></td>
 		</tr>
   <% end %>
