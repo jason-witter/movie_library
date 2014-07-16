@@ -15,10 +15,11 @@ class WishlistsController < ApplicationController
   end
 
   def create
+    existing_movies = current_user.movies.to_a
     @wishlist_movie = current_user.movies.build(movie_params)
     save = true
-    current_user.movies.each do |movie|
-      if @wishlist_movie.title == movie.title
+    existing_movies.each do |loop_movie|
+      if @wishlist_movie.title == loop_movie.title
         save = false
       end
     end
