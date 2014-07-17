@@ -1,6 +1,14 @@
-<div class="center">
-	<h1>Hello <%= @user.name %>!</h1>
-	<h4>You currently have <%= pluralize(@movies.count, 'movie') %> in your library,<br><%= pluralize(@wishlist_movies.count, 'movie') %>  in your wishlist,<br>and <%= pluralize(@movienight_movies.count, 'unwatched movie') %>.</h4><br>
+<h1>Hello <%= @user.name %>!</h1>
+<br>
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-offset-3 col-md-6 well">
+      <div class="center">
+          <h4>You currently have <%= pluralize(@movies.count, 'movie') %> in your library,<br><%= pluralize(@wishlist_movies.count, 'movie') %>  in your wishlist,<br>and <%= pluralize(@movienight_movies.count, 'unwatched movie') %>.</h4><br>
 
-	<%= link_to '<button type="button" class="btn btn-warning">Return to All Movies</button>'.html_safe, movies_path %>
+			<%= link_to '<button type="button" class="btn btn-warning">Return to All Movies</button>'.html_safe, movies_path %>
+		</div>
+        </div>
+    </div>
+  </div>
 </div>

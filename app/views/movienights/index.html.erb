@@ -1,27 +1,41 @@
-<h1 class="text-primary"><%= @user.name %>'s Movie Night Selections</h1>
+<h1><%= @user.name %>'s Movie Night Selections</h1>
 <br>
 <% unless  @movienight_movies.count == 0 %>
-<div class="row">
-  <div class="col-md-8">
-    <table class="table table-striped">
-      <thead>
-        <tr>
-          <th>Title</th>
-          <th>Delete</th>
-        </tr>
-      </thead>
 
-      <%= render 'table_body' %>
-    </table>
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-offset-3">
+      <%= link_to '<button type="button" class="btn btn-info">Choose a random unwatched movie</button>'.html_safe, randommovie_path %>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-6 col-md-offset-3 well">
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th>Title</th>
+            <th>Delete</th>
+          </tr>
+        </thead>
+
+        <%= render 'table_body' %>
+      </table>
+    </div>
   </div>
 </div>
 
-<%= link_to '<button type="button" class="btn btn-info">Choose a random movie to watch</button>'.html_safe, randommovie_path %>
+
 <br><br>
 <% else %>
 
-<h4>You don't have any unwatched movies!</h4>
+
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-offset-3 col-md-6 well">
+      <h3 class="center">You don't have any unwatched movies!</h3>
+    </div>
+  </div>
+</div>
 
 <% end %>
-<br>
-<%= link_to '<button type="button" class="btn btn-warning">Return to All Movies</button>'.html_safe, movies_path %>

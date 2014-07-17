@@ -1,30 +1,40 @@
-<h1 class="text-primary"><%= @user.name %>'s Movies</h1>
+<h1><%= @user.name %>'s Movies</h1>
 <br>
 <% unless @movies.count == 0 %>
 
-<%= link_to '<button type="button" class="btn btn-success">Add New Movie</button>'.html_safe, new_movie_path %>
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-offset-3">
+      <%= link_to '<button type="button" class="btn btn-info">Add New Movie</button>'.html_safe, new_movie_path %>
+    </div>
+  </div>
 
-<div class="row">
-  <div class="col-md-8">
-    <table class="table table-striped">
-      <thead>
-        <tr>
-          <th>Title</th>
-          <th>Downloaded?</th>
-          <th>Watched?</th>
-          <th>Delete</th>
-        </tr>
-      </thead>
+  <div class="row">
+    <div class="col-md-6 col-md-offset-3 well">
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th>Title</th>
+            <th>Downloaded?</th>
+            <th>Watched?</th>
+            <th>Delete</th>
+          </tr>
+        </thead>
 
-      <%= render 'table_body' %>
-    </table>
+        <%= render 'table_body' %>
+      </table>
+    </div>
   </div>
 </div>
-<%= link_to '<button type="button" class="btn btn-info">Wishlist</button>'.html_safe, wishlists_path %>
-<%= link_to '<button type="button" class="btn btn-info">Find a Movie for Movie Night</button>'.html_safe, movienight_path %>
 
 <% else %>
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-offset-3 col-md-6 well">
+      <h3 class="center">You don't have any movies in your library!<br>Get started by adding a movie <%= link_to 'you already own', new_movie_path %>,<br>or by adding one to your <%= link_to 'wishlist', new_wishlist_path %>.</h3>
+    </div>
+  </div>
+</div>
 
-<h3 class="center">You don't have any movies in your library!<br>Get started by adding a movie <%= link_to 'you already own', new_movie_path %>,<br>or by adding one to your <%= link_to 'wishlist', new_wishlist_path %>.</h3>
 
 <% end %>

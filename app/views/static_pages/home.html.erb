@@ -2,13 +2,10 @@
 
 <% if signed_in? %>
 <div class="center">
-	<%= link_to '<button type="button" class="btn btn-success">View All Movies</button>'.html_safe, movies_path %><br><br>
-	<%= link_to '<button type="button" class="btn btn-info">View Your Wishlist</button>'.html_safe, wishlists_path %><br><br>
-	<%= link_to '<button type="button" class="btn btn-warning">Find a Movie for Movie Night</button>'.html_safe, movienight_path %><br><br>
-	<%= link_to '<button type="button" class="btn btn-danger">Search Rotten Tomatoes for a Movie</button>'.html_safe, search_path %>
+	<%= link_to '<button type="button" class="btn btn-lg btn-info">View All Movies</button>'.html_safe, movies_path %>
 <div>
 <% else %>
 	<div class="center">
-		<%= link_to '<button type="button" class="btn btn-lg btn-success">Sign In</button>'.html_safe, signin_path %>
+		<%= link_to '<button type="button" class="btn btn-lg btn-info">Sign In</button>'.html_safe, signin_path %>
 	</div>
 <% end %>

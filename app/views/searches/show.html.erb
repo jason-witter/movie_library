@@ -2,9 +2,22 @@
     Your browser does not appear to have JavaScript enabled. Please be advised that some
     functionality may be missing as a result.
 </div>
-<p class="text-info">If search is not working, try refreshing the page. It's probably a Firefox problem.</p>
-<input id="search_text" type="text" class='searchField'/>
-<button class="btn btn-primary" id="search_button">Search</button>
-<br>
-<div id="search_body">
+<div class="container-fluid">
+	<div id="search_warning" class="row">
+		<div class="col-md-offset-3 col-md-6">
+			<p class="alert alert-info">If search is not working, try refreshing the page.</p>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-md-offset-3 col-md-6">
+			<input id="search_text" type="text" class='searchField'/>
+			<button class="btn btn-info" id="search_button">Search</button>
+		</div>
+	</div>
+	<br>
+	<div class="row">
+		<div id="search_body" class="col-md-6 col-md-offset-3">
+		</div>
+	</div>
 </div>
+

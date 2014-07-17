@@ -5,3 +5,31 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+
+backgrounds = MovieBackground.create([{ name: 'starwars'},
+						 { name: 'lionking'},
+						 { name: 'forrestgump'},
+                                     { name: 'matrix'},
+                                     { name: 'ironman'},
+                                     { name: 'americanbeauty'},
+                                     { name: 'darkknight'},
+                                     { name: 'django'},
+                                     { name: 'fightclub'},
+                                     { name: 'godfather'},
+                                     { name: 'killbill'},
+                                     { name: 'psycho'},
+                                     { name: 'silence'},
+                                     { name: 'skyfall'},
+                                     { name: 'trainspotting'},
+                                     { name: 'tron'},
+                                     { name: 'batman'},
+                                     { name: 'captainamerica'},
+                                     { name: 'drmanhattan'},
+                                     { name: 'hulk'},
+                                     { name: 'ironman2'},
+                                     { name: 'silversurfer'},
+                                     { name: 'spiderman'},
+                                     { name: 'superman'},
+                                     { name: 'thor'},
+                                     { name: 'wolverine'},
+						 { name: 'inception'}])

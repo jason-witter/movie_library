@@ -1,25 +1,39 @@
-<h1 class="text-primary"><%= @user.name %>'s Wishlist</h1>
+<h1><%= @user.name %>'s Wishlist</h1>
 <br>
 <% unless  @wish_list_movies.count == 0 %>
-<%= link_to '<button type="button" class="btn btn-success">Add New Movie to Wishlist</button>'.html_safe, new_wishlist_path %>
-<div class="row">
-  <div class="col-md-8">
-    <table class="table table-striped">
-      <thead>
-        <tr>
-          <th>Title</th>
-          <th>Delete</th>
-        </tr>
-      </thead>
 
-      <%= render 'table_body' %>
-    </table>
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-offset-3">
+      <%= link_to '<button type="button" class="btn btn-info">Add New Movie to Wishlist</button>'.html_safe, new_wishlist_path %>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-6 col-md-offset-3 well">
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th>Title</th>
+            <th>Delete</th>
+          </tr>
+        </thead>
+
+        <%= render 'table_body' %>
+      </table>
+    </div>
   </div>
 </div>
 <% else %>
 
-<h4>You don't have any movies on your wishlist! Check out <a target="_blank"href="http://www.rottentomatoes.com/dvd/new-releases">Rotten Tomatoes</a> for some inspiration, or you can <%= link_to 'add one', new_wishlist_path %>.</h4>
+
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-offset-3 col-md-6 well">
+      <h3 class="center">You don't have any movies on your wishlist!<br> Check out <a target="_blank"href="http://www.rottentomatoes.com/dvd/new-releases">Rotten Tomatoes</a> for new dvd releases,<br> <%= link_to 'search Rotten Tomatoes for a movie', search_path %>,<br> or you can <%= link_to 'add one manually', new_wishlist_path %>.</h3>
+    </div>
+  </div>
+</div>
 
 <% end %>
-<br>
-<%= link_to '<button type="button" class="btn btn-warning">Return to All Movies</button>'.html_safe, movies_path %>

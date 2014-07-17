@@ -15,6 +15,9 @@
 //= require bootstrap
 //= require turbolinks
 //= require_tree .
-document.documentElement.setAttribute('js-enabled', '2')
+document.documentElement.setAttribute('js-enabled', '2');
 document.documentElement.setAttribute('js-enabled', '1');
 $(document.getElementById('search_body')).html('');
+$(document).ready(function() {
+	$('h1').addClass('bg-info');
+})

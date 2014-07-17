@@ -6,7 +6,7 @@ $(document).ready(function() {
     }
   });
   $('#search_button').click(search);
-
+  $(document.getElementById("search_warning")).show();
   
 
   // Rotten Tomatoes search function
@@ -32,12 +32,12 @@ $(document).ready(function() {
       var search_result_body = $(document.getElementById('search_body'));
       search_result_body.html('');
       var content = '';
-      if (data.total >=  10) {
-        content += '<p>Found ' + data.total + ' results for ' + query + '. Displaying the top 10.</p>';
+      if (data.total >  10) {
+        content += '<p class="alert alert-info">Found ' + data.total + ' results for ' + query + '. Displaying the top 10.</p>';
       } else if (data.total == 1) {
-        content += '<p>Found ' + data.total + ' result for ' + query + '.';
+        content += '<p class="alert alert-info">Found ' + data.total + ' result for ' + query + '.';
       } else {
-        content += '<p>Found ' + data.total + ' results for ' + query + '.';
+        content += '<p class="alert alert-info">Found ' + data.total + ' results for ' + query + '.';
       }
       content += generate_table_head();
       var movies = data.movies;
@@ -45,18 +45,18 @@ $(document).ready(function() {
         content += '<tr><td><img src="' + movie.posters.thumbnail + '" /></td>';
         content += '<td>' + movie.title + '</td>';
         content += '<td>' + movie.release_dates.dvd + '</td>';
-        content += '<td><button id="wishlist_add" class="btn btn-success" name="' +
+        content += '<td><button id="wishlist_add" class="btn btn-info" name="' +
                      movie.release_dates.dvd + '" title="' + movie.title +
                      '">Add to Wishlist</button></td></tr>'
       });
       content += generate_table_foot();
       search_result_body.html(content);
+      $(document.getElementById("search_warning")).hide();
     };
 
     function generate_table_head() {
       var str = '';
-      str += '<div class="row"><div class="col-md-8">' + 
-              '<table class="table table-striped">' + 
+      str +=  '<div class="well"><table class="table table-striped">' + 
               '<thead><tr><th></th><th>Title</th><th>DVD Release Date</th>' + 
               '<th></th></tr></thead><tbody>';
       return str;
@@ -64,7 +64,7 @@ $(document).ready(function() {
 
     function generate_table_foot() {
       var str = '';
-      str += '</tbody></table></div></div>';
+      str += '</tbody></table></div>';
       return str;
     };
 
