@@ -2,6 +2,18 @@
   <% @wish_list_movies.each do |movie| %>
     <tr>
 		  <td><%= movie.title %></td>
+		  <td><%= movie.releaseDate %></td>
+		  <% if movie.releaseDate %>
+			  <% if movie.releaseDate > Date.today %>
+			  <td><%= (movie.releaseDate - Date.today).to_i %></td>
+			  <% elsif movie.releaseDate == Date.today %>
+			  <td>Today!</td>
+			  <% else %>
+			  <td>Released</td>
+			  <% end %>
+			<% else %>
+			<td></td>
+			<% end %>
 		  <td><%= link_to '<span class="glyphicon glyphicon-trash"></span'.html_safe, movie, method: :delete, data: { confirm: 'Are you sure?' } %></td>
 		</tr>
   <% end %>

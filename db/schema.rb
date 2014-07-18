@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140717150458) do
+ActiveRecord::Schema.define(version: 20140718131302) do
 
   create_table "movie_backgrounds", force: true do |t|
     t.string   "name"
@@ -21,11 +21,12 @@ ActiveRecord::Schema.define(version: 20140717150458) do
 
   create_table "movies", force: true do |t|
     t.string   "title"
-    t.boolean  "watched",    default: false
-    t.boolean  "downloaded", default: false
+    t.boolean  "watched",     default: false
+    t.boolean  "downloaded",  default: false
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "user_id"
+    t.date     "releaseDate"
   end
 
   add_index "movies", ["user_id", "created_at"], name: "index_movies_on_user_id_and_created_at"

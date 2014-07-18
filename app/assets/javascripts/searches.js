@@ -75,7 +75,7 @@ $(document).ready(function() {
       $.ajax({
         type: "POST",
         url: "/wishlists/new/",
-        data: { movie: { title: ev.currentTarget.title }},
+        data: { movie: { title: ev.currentTarget.title, releaseDate: ev.currentTarget.name }},
         success: function () {
           window.location.pathname = "wishlists"
         }

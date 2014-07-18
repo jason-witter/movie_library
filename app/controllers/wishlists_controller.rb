@@ -47,6 +47,6 @@ class WishlistsController < ApplicationController
     end
 
     def movie_params
-      params.require(:movie).permit(:title)
+      params.require(:movie).permit(:title, :releaseDate)
     end
 end
