@@ -4,9 +4,9 @@
 		  <td><%= movie.title %></td>
 		  <td><%= movie.releaseDate %></td>
 		  <% if movie.releaseDate %>
-			  <% if movie.releaseDate > Date.today %>
+			  <% if (movie.releaseDate > Date.today) %>
 			  <td><%= (movie.releaseDate - Date.today).to_i %></td>
-			  <% elsif movie.releaseDate == Date.today %>
+			  <% elsif (movie.releaseDate == Date.today) %>
 			  <td>Today!</td>
 			  <% else %>
 			  <td>Released</td>
