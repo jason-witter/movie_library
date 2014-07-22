@@ -8,7 +8,7 @@ $(document).ready(function () {
 
 	// Edit functions
 	function downloaded_no(ev) {
-		var movie_id = ev.currentTarget.title
+		var movie_id = ev.currentTarget.name
 		$.ajax({
         type: "GET",
         url: "/toggle/",
@@ -22,7 +22,7 @@ $(document).ready(function () {
 	}
 
 	function downloaded_yes(ev) {
-		var movie_id = ev.currentTarget.title
+		var movie_id = ev.currentTarget.name
 		$.ajax({
         type: "GET",
         url: "/toggle/",
@@ -36,7 +36,7 @@ $(document).ready(function () {
 	}
 
 	function watched_no(ev) {
-		var movie_id = ev.currentTarget.title
+		var movie_id = ev.currentTarget.name
 		$.ajax({
         type: "GET",
         url: "/toggle/",
@@ -50,7 +50,7 @@ $(document).ready(function () {
 	}
 
 	function watched_yes(ev) {
-		var movie_id = ev.currentTarget.title
+		var movie_id = ev.currentTarget.name
 		$.ajax({
         type: "GET",
         url: "/toggle/",

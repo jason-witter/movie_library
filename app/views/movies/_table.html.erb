@@ -12,14 +12,14 @@
     <tr>
 		  <td><%= movie.title %></td>
 		  <% if movie.downloaded %>
-		    <td><button class="downloaded_yes" title="<%= movie.id %>"><span class="glyphicon glyphicon-ok"></span></button></td>
+		    <td><button class="downloaded_yes" name="<%= movie.id %>"><span class="glyphicon glyphicon-ok"></span></button></td>
 		  <% else %>
-		    <td><button class="downloaded_no" title="<%= movie.id %>"><span class="glyphicon glyphicon-remove"></span></button></td>
+		    <td><button class="downloaded_no" name="<%= movie.id %>"><span class="glyphicon glyphicon-remove"></span></button></td>
 		  <% end %>
 		  <% if movie.watched %>
-		    <td><button class="watched_yes" title="<%= movie.id %>"><span class="glyphicon glyphicon-ok"></span></button></td>
+		    <td><button class="watched_yes" name="<%= movie.id %>"><span class="glyphicon glyphicon-ok"></span></button></td>
 		  <% else %>
-		    <td><button class="watched_no" title="<%= movie.id %>"><span class="glyphicon glyphicon-remove"></span></button></td>
+		    <td><button class="watched_no" name="<%= movie.id %>"><span class="glyphicon glyphicon-remove"></span></button></td>
 		  <% end %>
 		  <td><%= movie.releaseDate %></td>
 		  <td><%= link_to '<span class="glyphicon glyphicon-trash"></span'.html_safe, movie, method: :delete, data: { confirm: 'Are you sure?' } %></td>
