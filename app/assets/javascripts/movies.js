@@ -1,9 +1,10 @@
 $(document).ready(function () {
+  var table = $('#movie_table').dataTable({"sPaginationType":  "bootstrap"});
 	// Boolean toggle triggers
-	$(".downloaded_yes").click(downloaded_no);
-	$(".downloaded_no").click(downloaded_yes);
-	$(".watched_yes").click(watched_no);
-	$(".watched_no").click(watched_yes);
+	$(document).on("click", ".downloaded_yes", downloaded_no);
+	$(document).on("click", ".downloaded_no", downloaded_yes);
+	$(document).on("click", ".watched_yes", watched_no);
+	$(document).on("click", ".watched_no", watched_yes);
 
 	// Edit functions
 	function downloaded_no(ev) {
@@ -12,8 +13,10 @@ $(document).ready(function () {
         type: "GET",
         url: "/toggle/",
         data: $.param({ id: movie_id, movie: { downloaded: false }}),
-        success: function () {
-          window.location.pathname = "movies"
+        success: function (data) {
+          table.fnDestroy();
+          $('#movie_table').html(data);
+          $('#movie_table').dataTable({"sPaginationType":  "bootstrap"});
         }
       });
 	}
@@ -24,8 +27,10 @@ $(document).ready(function () {
         type: "GET",
         url: "/toggle/",
         data: $.param({ id: movie_id, movie: { downloaded: true }}),
-        success: function () {
-          window.location.pathname = "movies"
+        success: function (data) {
+          table.fnDestroy();
+          $('#movie_table').html(data);
+          $('#movie_table').dataTable({"sPaginationType":  "bootstrap"});
         }
       });
 	}
@@ -36,8 +41,10 @@ $(document).ready(function () {
         type: "GET",
         url: "/toggle/",
         data: $.param({ id: movie_id, movie: { watched: false }}),
-        success: function () {
-          window.location.pathname = "movies"
+        success: function (data) {
+          table.fnDestroy();
+          $('#movie_table').html(data);
+          $('#movie_table').dataTable({"sPaginationType":  "bootstrap"});
         }
       });
 	}
@@ -48,8 +55,10 @@ $(document).ready(function () {
         type: "GET",
         url: "/toggle/",
         data: $.param({ id: movie_id, movie: { watched: true }}),
-        success: function () {
-          window.location.pathname = "movies"
+        success: function (data) {
+          table.fnDestroy();
+          $('#movie_table').html(data);
+          $('#movie_table').dataTable({"sPaginationType":  "bootstrap"});
         }
       });
 	}

@@ -11,18 +11,8 @@
 
   <div class="row">
     <div class="col-md-6 col-md-offset-3 well">
-      <table class="table table-striped">
-        <thead>
-          <tr>
-            <th>Title</th>
-            <th>Downloaded?</th>
-            <th>Watched?</th>
-            <th>DVD Release Date</th>
-            <th>Delete</th>
-          </tr>
-        </thead>
-
-        <%= render 'table_body' %>
+      <table id="movie_table" class="table table-striped">
+        <%= render 'table' %>
       </table>
     </div>
   </div>

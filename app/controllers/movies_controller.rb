@@ -36,7 +36,8 @@ class MoviesController < ApplicationController
   def update
     respond_to do |format|
       if @movie.update(movie_params)
-        format.html { redirect_to '/movies'}
+        @movies = current_user.movies
+        format.html { render :partial => 'movies/table'}
         format.json { head :no_content }
       else
         format.html { render action:  'edit' }

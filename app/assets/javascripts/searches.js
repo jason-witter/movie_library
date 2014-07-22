@@ -22,7 +22,7 @@ $(document).ready(function() {
    
     // send off the query
     $.ajax({
-      url: moviesSearchUrl + '&q=' + encodeURI(query) + '&page_limit=10',
+      url: moviesSearchUrl + '&q=' + encodeURI(query),
       dataType: "jsonp",
       success: searchCallback
     });
@@ -32,13 +32,6 @@ $(document).ready(function() {
       var search_result_body = $(document.getElementById('search_body'));
       search_result_body.html('');
       var content = '';
-      if (data.total >  10) {
-        content += '<p class="alert alert-info">Found ' + data.total + ' results for ' + query + '. Displaying the top 10.</p>';
-      } else if (data.total == 1) {
-        content += '<p class="alert alert-info">Found ' + data.total + ' result for ' + query + '.';
-      } else {
-        content += '<p class="alert alert-info">Found ' + data.total + ' results for ' + query + '.';
-      }
       content += generate_table_head();
       var movies = data.movies;
       $.each(movies, function(index, movie) {
@@ -52,11 +45,12 @@ $(document).ready(function() {
       content += generate_table_foot();
       search_result_body.html(content);
       $(document.getElementById("search_warning")).hide();
+      $('#search_table').dataTable({"sPaginationType":  "bootstrap"});
     };
 
     function generate_table_head() {
       var str = '';
-      str +=  '<div class="well"><table class="table table-striped">' + 
+      str +=  '<div class="well"><table id="search_table" class="table table-striped">' + 
               '<thead><tr><th></th><th>Title</th><th>DVD Release Date</th>' + 
               '<th></th></tr></thead><tbody>';
       return str;
