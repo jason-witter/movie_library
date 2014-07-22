@@ -1,5 +1,5 @@
 $(document).ready(function () {
-  var table = $('#movie_table').dataTable({"sPaginationType":  "bootstrap", "aoColumnDefs": [{ "bSortable": false, "aTargets": [1, 2, 4]}]});
+  var table = $('#movie_table').dataTable({stateSave: true, "sPaginationType":  "bootstrap", "aoColumnDefs": [{ "bSortable": false, "aTargets": [1, 2, 4]}]});
 	// Boolean toggle triggers
 	$(document).on("click", ".downloaded_yes", downloaded_no);
 	$(document).on("click", ".downloaded_no", downloaded_yes);
@@ -16,7 +16,7 @@ $(document).ready(function () {
         success: function (data) {
           table.fnDestroy();
           $('#movie_table').html(data);
-          $('#movie_table').dataTable({"sPaginationType":  "bootstrap", "aoColumnDefs": [{ "bSortable": false, "aTargets": [1, 2, 4]}]});
+          $('#movie_table').dataTable({stateSave: true, "sPaginationType":  "bootstrap", "aoColumnDefs": [{ "bSortable": false, "aTargets": [1, 2, 4]}]});
         }
       });
 	}
@@ -30,7 +30,7 @@ $(document).ready(function () {
         success: function (data) {
           table.fnDestroy();
           $('#movie_table').html(data);
-          $('#movie_table').dataTable({"sPaginationType":  "bootstrap", "aoColumnDefs": [{ "bSortable": false, "aTargets": [1, 2, 4]}]});
+          $('#movie_table').dataTable({stateSave: true, "sPaginationType":  "bootstrap", "aoColumnDefs": [{ "bSortable": false, "aTargets": [1, 2, 4]}]});
         }
       });
 	}
@@ -44,7 +44,7 @@ $(document).ready(function () {
         success: function (data) {
           table.fnDestroy();
           $('#movie_table').html(data);
-          $('#movie_table').dataTable({"sPaginationType":  "bootstrap", "aoColumnDefs": [{ "bSortable": false, "aTargets": [1, 2, 4]}]});
+          $('#movie_table').dataTable({stateSave: true, "sPaginationType":  "bootstrap", "aoColumnDefs": [{ "bSortable": false, "aTargets": [1, 2, 4]}]});
         }
       });
 	}
@@ -58,7 +58,7 @@ $(document).ready(function () {
         success: function (data) {
           table.fnDestroy();
           $('#movie_table').html(data);
-          $('#movie_table').dataTable({"sPaginationType":  "bootstrap", "aoColumnDefs": [{ "bSortable": false, "aTargets": [1, 2, 4]}]});
+          $('#movie_table').dataTable({stateSave: true, "sPaginationType":  "bootstrap", "aoColumnDefs": [{ "bSortable": false, "aTargets": [1, 2, 4]}]});
         }
       });
 	}
