@@ -39,7 +39,7 @@ $(document).ready(function() {
         content += '<td>' + movie.title + '</td>';
         content += '<td>' + movie.release_dates.dvd + '</td>';
         content += '<td><button id="wishlist_add" class="btn btn-info" name="' +
-                     movie.release_dates.dvd + '" title="' + movie.title +
+                     movie.release_dates.dvd + '" value="' + movie.title +
                      '">Add to Wishlist</button></td></tr>'
       });
       content += generate_table_foot();
@@ -69,7 +69,7 @@ $(document).ready(function() {
       $.ajax({
         type: "POST",
         url: "/wishlists/new/",
-        data: { movie: { title: ev.currentTarget.title, releaseDate: ev.currentTarget.name }},
+        data: { movie: { title: ev.currentTarget.value, releaseDate: ev.currentTarget.name }},
         success: function () {
           window.location.pathname = "wishlists"
         }
