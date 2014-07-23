@@ -22,7 +22,7 @@
 		    <td><button class="watched_no" name="<%= movie.id %>"><span class="glyphicon glyphicon-remove"></span></button></td>
 		  <% end %>
 		  <td><%= movie.releaseDate %></td>
-		  <td><%= link_to '<span class="glyphicon glyphicon-trash"></span'.html_safe, movie, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+		  <td><%= link_to '<span class="glyphicon glyphicon-trash"></span>'.html_safe, movie, method: :delete, data: { confirm: 'Are you sure?' } %></td>
 		</tr>
   <% end %>
 </tbody>
