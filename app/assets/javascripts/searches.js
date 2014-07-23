@@ -45,7 +45,7 @@ $(document).ready(function() {
       content += generate_table_foot();
       search_result_body.html(content);
       $(document.getElementById("search_warning")).hide();
-      $('#search_table').dataTable({"sPaginationType":  "bootstrap"});
+      $('#search_table').dataTable({"sPaginationType":  "bootstrap", "aoColumnDefs": [{ "bSortable": false, "aTargets": [0, 1, 2, 3]}]});
     };
 
     function generate_table_head() {
