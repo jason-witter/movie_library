@@ -1,5 +1,21 @@
-<h1><%= @user.name %>'s Movie Night Selections</h1>
+<h1><%= @user.name %>'s Movie Night Selections
+<span data-toggle="modal" data-target=".bs-example-modal-sm" class="btn glyphicon glyphicon-info-sign"></span></h1>
+
+<div class="modal fade bs-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-sm">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+        <h4 class="modal-title">About Movie Night</h4>
+      </div>
+      <div class="modal-body">
+        <p>This is a list of movies that have been downloaded but not yet watched.</p>
+      </div>
+    </div>
+  </div>
+</div>
 <br>
+
 <% unless  @movienight_movies.count == 0 %>
 
 <div class="container-fluid">
